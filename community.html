@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community | MentalMosaic</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="styles2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <img src="images/logo.png" alt="MentalMosaic">
+          <span>MentalMosaic</span>
+        </div>
+        <button class="mobile-toggle" id="sidebar-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html">
+              <i class="fas fa-home"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="mood-tracker.html">
+              <i class="fas fa-chart-line"></i>
+              <span>Mood Tracker</span>
+            </a>
+          </li>
+          <li>
+            <a href="journal.html">
+              <i class="fas fa-book"></i>
+              <span>Journal</span>
+            </a>
+          </li>
+          <li>
+            <a href="resources.html">
+              <i class="fas fa-lightbulb"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="community.html">
+              <i class="fas fa-users"></i>
+              <span>Community</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <a href="settings.html">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+        <a href="#" id="logout-button">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="content-header">
+        <h1>Community</h1>
+        <div class="user-menu">
+          <div class="notification-icon">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">2</span>
+          </div>
+          <div class="user-profile" id="user-menu-trigger">
+            <img src="https://via.placeholder.com/40" alt="User Avatar">
+            <span class="user-name">John Doe</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="user-dropdown" id="user-dropdown">
+            <ul>
+              <li><a href="settings.html"><i class="fas fa-user"></i> Profile</a></li>
+              <li><a href="settings.html#preferences"><i class="fas fa-sliders-h"></i> Preferences</a></li>
+              <li><a href="#" id="theme-toggle"><i class="fas fa-moon"></i> Dark Mode</a></li>
+              <li class="divider"></li>
+              <li><a href="#" id="logout-dropdown"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      
+      <div class="content-wrapper">
+        <!-- Community Introduction -->
+        <div class="community-intro">
+          <h2>Connect with Others on Your Mental Wellness Journey</h2>
+          <p>Our community provides a safe, supportive space to share experiences and find encouragement from others who understand what you're going through.</p>
+          
+          <div class="community-guidelines">
+            <h3><i class="fas fa-shield-alt"></i> Community Guidelines</h3>
+            <ul>
+              <li>Be respectful and supportive of others</li>
+              <li>Maintain confidentiality and privacy</li>
+              <li>Focus on sharing experiences rather than giving medical advice</li>
+              <li>Use content warnings for potentially triggering topics</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Community Tabs -->
+        <div class="tabs">
+          <button class="tab-button active" data-tab="discussion">Discussions</button>
+          <button class="tab-button" data-tab="groups">Support Groups</button>
+          <button class="tab-button" data-tab="events">Events</button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="tab-content">
+          <!-- Discussions Tab -->
+          <div class="tab-pane active" id="discussion">
+            <div class="discussion-header">
+              <div class="discussion-actions">
+                <button id="new-post-button" class="primary-button">
+                  <i class="fas fa-plus"></i> New Post
+                </button>
+                <div class="discussion-sort">
+                  <label for="sort-by">Sort by:</label>
+                  <select id="sort-by">
+                    <option value="recent">Most Recent</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="commented">Most Commented</option>
+                  </select>
+                </div>
+              </div>
+              <div class="discussion-filter">
+                <div class="filter-by-tags">
+                  <span class="tag-filter active" data-tag="all">All Topics</span>
+                  <span class="tag-filter" data-tag="motivation">Motivation</span>
+                  <span class="tag-filter" data-tag="coping">Coping Strategies</span>
+                  <span class="tag-filter" data-tag="success">Success Stories</span>
+                  <span class="tag-filter" data-tag="support">Support</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="discussion-list" id="discussions-container">
+              <!-- Discussion posts will be loaded dynamically -->
+              
+              <!-- Example discussion post -->
+              <div class="discussion-post">
+                <div class="post-author">
+                  <img src="https://via.placeholder.com/40" alt="Author Avatar">
+                  <div class="author-info">
+                    <span class="author-name">Alex Johnson</span>
+                    <span class="post-time">2 hours ago</span>
+                  </div>
+                </div>
+                <div class="post-content">
+                  <h3>Found a great way to manage work stress</h3>
+                  <p>I've been struggling with balancing work demands and mental health lately. I started using the Pomodoro technique (25 min work, 5 min break) and it's been incredibly helpful in maintaining focus while giving my mind regular breaks.</p>
+                  <div class="post-tags">
+                    <span class="tag">Coping Strategies</span>
+                    <span class="tag">Work-Life Balance</span>
+                  </div>
+                </div>
+                <div class="post-stats">
+                  <span class="stat"><i class="fas fa-heart"></i> 24</span>
+                  <span class="stat"><i class="fas fa-comment"></i> 7</span>
+                </div>
+              </div>
+              
+              <!-- Example discussion post -->
+              <div class="discussion-post">
+                <div class="post-author">
+                  <img src="https://via.placeholder.com/40" alt="Author Avatar">
+                  <div class="author-info">
+                    <span class="author-name">Jamie Roberts</span>
+                    <span class="post-time">Yesterday</span>
+                  </div>
+                </div>
+                <div class="post-content">
+                  <h3>Gratitude practice has changed my outlook</h3>
+                  <p>I started writing down three things I'm grateful for every night before bed. It's been a month now, and I've noticed a significant shift in how I perceive daily challenges. Even on difficult days, I can find something positive to focus on.</p>
+                  <div class="post-tags">
+                    <span class="tag">Success Stories</span>
+                    <span class="tag">Gratitude</span>
+                  </div>
+                </div>
+                <div class="post-stats">
+                  <span class="stat"><i class="fas fa-heart"></i> 42</span>
+                  <span class="stat"><i class="fas fa-comment"></i> 15</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pagination">
+              <button class="pagination-button prev"><i class="fas fa-chevron-left"></i></button>
+              <div class="pagination-numbers">
+                <button class="pagination-number active">1</button>
+                <button class="pagination-number">2</button>
+                <button class="pagination-number">3</button>
+              </div>
+              <button class="pagination-button next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+          
+          <!-- Support Groups Tab -->
+          <div class="tab-pane" id="groups">
+            <div class="groups-header">
+              <h2>Find Your Support Community</h2>
+              <p>Join groups focused on specific aspects of mental wellness to connect with others who share similar experiences.</p>
+            </div>
+            
+            <div class="groups-grid">
+              <div class="group-card">
+                <div class="group-image">
+                  <img src="https://via.placeholder.com/300x150" alt="Anxiety Support Group">
+                </div>
+                <div class="group-details">
+                  <h3>Anxiety Support</h3>
+                  <p>A supportive space for sharing experiences and strategies for managing anxiety.</p>
+                  <div class="group-meta">
+                    <span class="group-members"><i class="fas fa-users"></i> 245 members</span>
+                    <span class="group-activity"><i class="fas fa-comment"></i> Very Active</span>
+                  </div>
+                  <button class="join-group-button">Join Group</button>
+                </div>
+              </div>
+              
+              <div class="group-card">
+                <div class="group-image">
+                  <img src="https://via.placeholder.com/300x150" alt="Mindfulness Practitioners">
+                </div>
+                <div class="group-details">
+                  <h3>Mindfulness Practitioners</h3>
+                  <p>For those practicing mindfulness meditation and seeking to deepen their practice.</p>
+                  <div class="group-meta">
+                    <span class="group-members"><i class="fas fa-users"></i> 187 members</span>
+                    <span class="group-activity"><i class="fas fa-comment"></i> Active</span>
+                  </div>
+                  <button class="join-group-button">Join Group</button>
+                </div>
+              </div>
+              
+              <div class="group-card">
+                <div class="group-image">
+                  <img src="https://via.placeholder.com/300x150" alt="Work-Life Balance">
+                </div>
+                <div class="group-details">
+                  <h3>Work-Life Balance</h3>
+                  <p>Discussions on maintaining healthy boundaries between work and personal life.</p>
+                  <div class="group-meta">
+                    <span class="group-members"><i class="fas fa-users"></i> 156 members</span>
+                    <span class="group-activity"><i class="fas fa-comment"></i> Moderately Active</span>
+                  </div>
+                  <button class="join-group-button">Join Group</button>
+                </div>
+              </div>
+              
+              <div class="group-card">
+                <div class="group-image">
+                  <img src="https://via.placeholder.com/300x150" alt="Sleep Improvement">
+                </div>
+                <div class="group-details">
+                  <h3>Sleep Improvement</h3>
+                  <p>Share and learn strategies for better sleep quality and establishing healthy sleep routines.</p>
+                  <div class="group-meta">
+                    <span class="group-members"><i class="fas fa-users"></i> 128 members</span>
+                    <span class="group-activity"><i class="fas fa-comment"></i> Active</span>
+                  </div>
+                  <button class="join-group-button">Join Group</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Events Tab -->
+          <div class="tab-pane" id="events">
+            <div class="events-header">
+              <h2>Upcoming Community Events</h2>
+              <p>Participate in virtual workshops, webinars, and discussions led by mental health professionals and community members.</p>
+            </div>
+            
+            <div class="events-list">
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="day">12</span>
+                  <span class="month">May</span>
+                </div>
+                <div class="event-details">
+                  <h3>Workshop: Introduction to Mindfulness Meditation</h3>
+                  <p class="event-description">A beginner-friendly workshop on mindfulness techniques and their benefits for mental wellbeing.</p>
+                  <div class="event-meta">
+                    <span class="event-time"><i class="fas fa-clock"></i> 7:00 PM - 8:30 PM</span>
+                    <span class="event-type"><i class="fas fa-video"></i> Virtual</span>
+                    <span class="event-host"><i class="fas fa-user"></i> Dr. Sarah Chen</span>
+                  </div>
+                  <button class="register-button">Register</button>
+                </div>
+              </div>
+              
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="day">18</span>
+                  <span class="month">May</span>
+                </div>
+                <div class="event-details">
+                  <h3>Panel Discussion: Managing Workplace Stress</h3>
+                  <p class="event-description">A panel of experts discussing effective strategies for maintaining mental health in high-pressure work environments.</p>
+                  <div class="event-meta">
+                    <span class="event-time"><i class="fas fa-clock"></i> 6:00 PM - 7:30 PM</span>
+                    <span class="event-type"><i class="fas fa-video"></i> Virtual</span>
+                    <span class="event-host"><i class="fas fa-users"></i> Multiple Speakers</span>
+                  </div>
+                  <button class="register-button">Register</button>
+                </div>
+              </div>
+              
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="day">25</span>
+                  <span class="month">May</span>
+                </div>
+                <div class="event-details">
+                  <h3>Community Check-in: Sleep Improvement Strategies</h3>
+                  <p class="event-description">Join our community discussion about improving sleep quality and establishing healthy sleep routines.</p>
+                  <div class="event-meta">
+                    <span class="event-time"><i class="fas fa-clock"></i> 8:00 PM - 9:00 PM</span>
+                    <span class="event-type"><i class="fas fa-video"></i> Virtual</span>
+                    <span class="event-host"><i class="fas fa-user"></i> Sleep Improvement Group</span>
+                  </div>
+                  <button class="register-button">Register</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- New Post Modal -->
+  <div class="modal" id="new-post-modal">
+    <div class="modal-content post-modal">
+      <div class="modal-header">
+        <h2>Create New Post</h2>
+        <button class="close-modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="post-form">
+          <div class="form-group">
+            <label for="post-title">Title</label>
+            <input type="text" id="post-title" placeholder="Give your post a title">
+          </div>
+          
+          <div class="form-group">
+            <label for="post-content">Content</label>
+            <textarea id="post-content" placeholder="Share your thoughts, experiences, or questions..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label>Tags</label>
+            <div class="tags-selection">
+              <span class="selectable-tag" data-tag="motivation">Motivation</span>
+              <span class="selectable-tag" data-tag="coping">Coping Strategies</span>
+              <span class="selectable-tag" data-tag="success">Success Stories</span>
+              <span class="selectable-tag" data-tag="support">Support</span>
+              <span class="selectable-tag" data-tag="question">Question</span>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="privacy-options">
+              <label>Privacy:</label>
+              <select id="post-privacy">
+                <option value="public">Public (Visible to all community members)</option>
+                <option value="anonymous">Anonymous (Your identity will be hidden)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="secondary-button cancel-modal">Cancel</button>
+        <button class="primary-button" id="publish-post-button">Publish Post</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script src="js/community.js"></script>
+</body>
+</html>
