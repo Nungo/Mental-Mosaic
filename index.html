@@ -141,5 +141,62 @@
   </script>
   <script src="js/main.js"></script>
   <script src="js/auth.js"></script>
+  <script>
+    // Demo auth for deployed version
+    function setupDemoAuth() {
+      // Add a demo login button to bypass authentication for the deployed site
+      const loginForm = document.getElementById('login-form-element');
+      
+      if (loginForm) {
+        // Remove existing listeners and add new one
+        const newForm = loginForm.cloneNode(true);
+        loginForm.parentNode.replaceChild(newForm, loginForm);
+        
+        newForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Always simulate successful login for the demo
+          localStorage.setItem('nungo-auth-token', 'demo-token');
+          
+          // Create a demo user
+          const demoUser = {
+            id: 'user-demo',
+            name: 'John Doe',
+            email: document.getElementById('login-email').value || 'demo@example.com',
+            avatar: 'https://via.placeholder.com/40'
+          };
+          
+          localStorage.setItem('nungo-user-data', JSON.stringify(demoUser));
+          
+          // Redirect to dashboard
+          window.location.href = 'dashboard.html';
+        });
+      }
+      
+      // Special handling for Microsoft login button
+      const microsoftButton = document.querySelector('.microsoft-button');
+      if (microsoftButton) {
+        microsoftButton.addEventListener('click', function() {
+          localStorage.setItem('nungo-auth-token', 'demo-token');
+          
+          // Create a demo user
+          const demoUser = {
+            id: 'user-demo',
+            name: 'John Doe',
+            email: 'demo@example.com',
+            avatar: 'https://via.placeholder.com/40'
+          };
+          
+          localStorage.setItem('nungo-user-data', JSON.stringify(demoUser));
+          
+          // Redirect to dashboard
+          window.location.href = 'dashboard.html';
+        });
+      }
+    }
+  
+    // Call setup function
+    setupDemoAuth();
+  </script>
 </body>
 </html>
