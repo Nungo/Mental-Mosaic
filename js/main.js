@@ -790,3 +790,32 @@ document.addEventListener('DOMContentLoaded', function() {
     validateForm,
     resetForm
   };
+  // Hamburger menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+    
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-open');
+        document.body.classList.toggle('sidebar-active');
+        
+        // Toggle accessibility attribute
+        const isExpanded = sidebar.classList.contains('sidebar-open');
+        sidebarToggle.setAttribute('aria-expanded', isExpanded);
+      });
+      
+      // Close sidebar when clicking outside
+      document.addEventListener('click', function(event) {
+        const isClickInsideSidebar = sidebar.contains(event.target);
+        const isClickOnToggle = sidebarToggle.contains(event.target);
+        
+        if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('sidebar-open')) {
+          sidebar.classList.remove('sidebar-open');
+          document.body.classList.remove('sidebar-active');
+          sidebarToggle.setAttribute('aria-expanded', false);
+        }
+      });
+    }
+  });

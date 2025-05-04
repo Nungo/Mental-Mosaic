@@ -1419,10 +1419,12 @@
     color: var(--text-secondary);
   }
   
-  /* === RESPONSIVE STYLES === */
-  @media (max-width: 1200px) {
+  /* Enhanced Responsive Styles */
+@media (max-width: 1200px) {
+    /* Large laptop adjustments */
     .dashboard-grid {
       grid-template-columns: repeat(6, 1fr);
+      gap: var(--spacing-lg);
     }
     
     .mood-trends,
@@ -1434,6 +1436,7 @@
   }
   
   @media (max-width: 992px) {
+    /* Small laptop and tablet landscape adjustments */
     .journal-content {
       flex-direction: column;
     }
@@ -1450,66 +1453,119 @@
     .mood-option {
       flex: 0 0 calc(20% - var(--spacing-md));
     }
+    
+    /* Condense some spacing */
+    .content-wrapper {
+      padding: var(--spacing-lg);
+    }
+    
+    /* Slightly smaller card padding */
+    .card-body {
+      padding: var(--spacing-md);
+    }
   }
   
   @media (max-width: 768px) {
+    /* Tablet portrait and mobile landscape */
+    
+    /* Sidebar collapsed by default */
     .sidebar {
-      width: var(--sidebar-collapsed-width);
       position: fixed;
-      height: 100%;
+      height: 100vh;
+      left: calc(-1 * var(--sidebar-width));
+      box-shadow: none;
+      z-index: 30;
+    }
+    
+    /* When sidebar is toggled open */
+    .sidebar.sidebar-open {
+      left: 0;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Overlay when sidebar is open */
+    body.sidebar-active::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 20;
     }
     
-    .sidebar .logo span,
-    .sidebar-nav li a span,
-    .sidebar-footer a span {
-      display: none;
-    }
-    
-    .sidebar-nav li a {
-      justify-content: center;
-      padding: var(--spacing-md);
-    }
-    
-    .sidebar-footer a {
-      justify-content: center;
-    }
-    
-    .main-content {
-      margin-left: var(--sidebar-collapsed-width);
-      width: calc(100% - var(--sidebar-collapsed-width));
-    }
-    
+    /* Show hamburger toggle */
     .mobile-toggle {
       display: block;
     }
     
+    /* Adjust main content to take full width */
+    .main-content {
+      width: 100%;
+      margin-left: 0;
+    }
+    
+    /* Header adjustments */
     .content-header {
       padding: 0 var(--spacing-md);
     }
     
-    .content-wrapper {
-      padding: var(--spacing-md);
+    .content-header h1 {
+      font-size: var(--font-size-xl);
     }
     
+    /* Hide user name on smaller screens */
     .user-name {
       display: none;
     }
     
+    /* Content padding adjustments */
+    .content-wrapper {
+      padding: var(--spacing-md);
+    }
+    
+    /* Resource and journal card adjustments */
     .mood-option {
       flex: 0 0 calc(33.33% - var(--spacing-md));
     }
   }
   
   @media (max-width: 576px) {
+    /* Mobile portrait */
+    
+    /* Tighter spacing everywhere */
+    .content-wrapper {
+      padding: var(--spacing-sm);
+    }
+    
+    /* Smaller header */
+    .content-header {
+      height: auto;
+      padding: var(--spacing-sm);
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+    }
+    
+    /* Adjust welcome card */
     .welcome-card {
-      padding: var(--spacing-lg);
+      padding: var(--spacing-md);
     }
     
+    .welcome-text h2 {
+      font-size: var(--font-size-xl);
+    }
+    
+    .welcome-message {
+      font-size: var(--font-size-md);
+    }
+    
+    /* Mood buttons in two columns */
     .mood-button {
-      flex: 1 0 calc(50% - var(--spacing-md));
+      flex: 1 0 calc(50% - var(--spacing-sm));
     }
     
+    /* Stack action buttons */
     .quick-action-buttons {
       flex-direction: column;
       width: 100%;
@@ -1520,14 +1576,18 @@
       justify-content: center;
     }
     
+    /* Two mood options per row */
     .mood-option {
-      flex: 0 0 calc(50% - var(--spacing-md));
+      flex: 0 0 calc(50% - var(--spacing-sm));
     }
     
+    /* Two factors per row */
     .factors-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-sm);
     }
     
+    /* Journal header stack */
     .journal-header {
       flex-direction: column;
       gap: var(--spacing-md);
@@ -1538,13 +1598,124 @@
       width: 100%;
     }
     
+    /* Entry metadata stack */
     .entry-meta {
       flex-direction: column;
       align-items: flex-start;
       gap: var(--spacing-sm);
     }
     
+    /* Stack mood options */
     .mood-options {
       flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    
+    /* Adjust card layouts */
+    .card-header {
+      padding: var(--spacing-md);
+    }
+    
+    .card-body {
+      padding: var(--spacing-md);
+    }
+    
+    /* Modal adjustments */
+    .modal-content {
+      width: 95%;
+      max-height: 80vh;
+    }
+    
+    .modal-header, 
+    .modal-body, 
+    .modal-footer {
+      padding: var(--spacing-md);
+    }
+  }
+  
+  /* Special case for landscape orientation on mobile */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .sidebar {
+      position: fixed;
+      left: calc(-1 * var(--sidebar-width));
+    }
+    
+    .sidebar.sidebar-open {
+      left: 0;
+    }
+    
+    .main-content {
+      width: 100%;
+      margin-left: 0;
+    }
+    
+    .content-header {
+      height: auto;
+      padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    /* Adjust modal for landscape */
+    .modal-content {
+      max-height: 90vh;
+    }
+  }
+  /* Mobile toggle button fix - add this to your styles.css */
+@media (max-width: 768px) {
+    /* Fixed toggle button */
+    .mobile-toggle {
+      display: block !important; /* Force it to show */
+      position: fixed;
+      top: 15px;
+      left: 15px; 
+      z-index: 40;
+      background-color: var(--primary-color);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Sidebar positioning fix */
+    .sidebar {
+      position: fixed;
+      height: 100vh;
+      left: -100%; /* Make sure it's off-screen */
+      width: 80%;
+      max-width: 300px;
+      z-index: 35;
+      transition: left 0.3s ease;
+    }
+    
+    /* Sidebar open state */
+    .sidebar.sidebar-open {
+      left: 0;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Overlay when sidebar is open */
+    body.sidebar-active::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 20;
+    }
+    
+    /* Ensure main content layout is adjusted */
+    .main-content {
+      width: 100%;
+      margin-left: 0;
+    }
+    
+    /* Adjust content padding */
+    .content-wrapper {
+      padding-top: var(--spacing-md);
     }
   }

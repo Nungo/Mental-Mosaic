@@ -1,0 +1,253 @@
+/* ==========================================
+   MENTALMOSAIC - SETTINGS PAGE STYLESHEET
+   ========================================== */
+
+/* Settings Container */
+.settings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+  }
+  
+  /* Settings Header */
+  .settings-header {
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .settings-header h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .settings-header p {
+    color: var(--text-secondary);
+  }
+  
+  /* Settings Sections */
+  .settings-section {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .settings-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  /* Settings Options */
+  .settings-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .settings-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .settings-option:last-child {
+    border-bottom: none;
+  }
+  
+  .option-content {
+    flex: 1;
+  }
+  
+  .option-content h4 {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .option-content p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Toggle Switch */
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .toggle-switch label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-color);
+    transition: .4s;
+    border-radius: 24px;
+  }
+  
+  .toggle-switch label:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  .toggle-switch input:checked + label {
+    background-color: var(--primary-color);
+  }
+  
+  .toggle-switch input:checked + label:before {
+    transform: translateX(26px);
+  }
+  
+  /* Buttons */
+  .text-button {
+    color: var(--primary-color);
+    background: none;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .text-button:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+  
+  .secondary-button {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .secondary-button:hover {
+    background-color: var(--border-light);
+  }
+  
+  .danger-button {
+    background-color: var(--danger-light);
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .danger-button:hover {
+    background-color: var(--danger-color);
+    color: white;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .settings-container {
+      padding: var(--spacing-md) var(--spacing-sm);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .settings-option {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+    }
+    
+    .option-content {
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .settings-section {
+      padding: var(--spacing-md);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .settings-header h2 {
+      font-size: var(--font-size-xl);
+    }
+    
+    .settings-section h3 {
+      font-size: var(--font-size-lg);
+    }
+  }
+  /* Footer Styles */
+.app-footer {
+    margin-top: auto;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-light);
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+  
+  .footer-links a {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-links a:hover {
+    color: var(--primary-color);
+  }
+  
+  .footer-copyright {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+  }
+  
+  /* Make sure main content wrapper allows footer to stay at bottom */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content-wrapper {
+    flex: 1;
+  }

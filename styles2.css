@@ -710,3 +710,119 @@
       justify-content: space-between;
     }
   }
+  /* Enhanced Responsive Styles for Resources and Community */
+@media (max-width: 992px) {
+    /* Resources section adjustments */
+    .resources-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+    }
+    
+    .featured-content {
+      flex-direction: column;
+    }
+    
+    .featured-image {
+      min-width: 100%;
+      max-height: 300px;
+    }
+    
+    /* Resource categories adjustments */
+    .resource-categories {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+    }
+    
+    .resource-search {
+      width: 100%;
+    }
+    
+    /* Community adjustments */
+    .groups-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Resources section adjustments */
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    /* Category filters */
+    .category-filters {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: var(--spacing-xs);
+    }
+    
+    /* Featured resource */
+    .featured-details {
+      padding: var(--spacing-md);
+    }
+    
+    .featured-meta {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    
+    /* Audio player */
+    .player-controls {
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+    }
+    
+    /* Community section */
+    .groups-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .privacy-options {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    /* Further adjustments for small screens */
+    .category-filter, 
+    .tag-filter,
+    .selectable-tag {
+      font-size: var(--font-size-xs);
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .resource-card {
+      padding: var(--spacing-md);
+    }
+    
+    .resource-icon {
+      width: 40px;
+      height: 40px;
+      font-size: var(--font-size-lg);
+    }
+    
+    .featured-header {
+      padding: var(--spacing-md);
+    }
+    
+    .featured-header h2 {
+      font-size: var(--font-size-lg);
+    }
+    
+    .community-guidelines {
+      padding: var(--spacing-md);
+    }
+    
+    .post-stats {
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+    }
+    
+    .event-meta {
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+  }

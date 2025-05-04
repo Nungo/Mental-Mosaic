@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | MentalMosaic</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="settings.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <img src="images/logo.png" alt="MentalMosaic">
+          <span>MentalMosaic</span>
+        </div>
+        <button class="mobile-toggle" id="sidebar-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html">
+              <i class="fas fa-home"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="mood-tracker.html">
+              <i class="fas fa-chart-line"></i>
+              <span>Mood Tracker</span>
+            </a>
+          </li>
+          <li>
+            <a href="journal.html">
+              <i class="fas fa-book"></i>
+              <span>Journal</span>
+            </a>
+          </li>
+          <li>
+            <a href="resources.html">
+              <i class="fas fa-lightbulb"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+          <li>
+            <a href="community.html">
+              <i class="fas fa-users"></i>
+              <span>Community</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <a href="settings.html" class="active">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+        <a href="#" id="logout-button">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="content-header">
+        <h1>Settings</h1>
+        <div class="user-menu">
+          <div class="notification-icon">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">2</span>
+          </div>
+          <div class="user-profile" id="user-menu-trigger">
+            <img src="https://via.placeholder.com/40" alt="User Avatar">
+            <span class="user-name">John Doe</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="user-dropdown" id="user-dropdown">
+            <ul>
+              <li><a href="settings.html"><i class="fas fa-user"></i> Profile</a></li>
+              <li><a href="settings.html#preferences"><i class="fas fa-sliders-h"></i> Preferences</a></li>
+              <li><a href="#" id="theme-toggle"><i class="fas fa-moon"></i> Dark Mode</a></li>
+              <li class="divider"></li>
+              <li><a href="#" id="logout-dropdown"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      
+      <div class="content-wrapper">
+        <div class="settings-container">
+          <div class="settings-header">
+            <h2>Account Settings</h2>
+            <p>Manage your account and application preferences</p>
+          </div>
+          
+          <div class="settings-section">
+            <h3>Profile Information</h3>
+            <div class="settings-options">
+              <div class="settings-option">
+                <div class="option-content">
+                  <h4>Personal Information</h4>
+                  <p>Update your name, email, and profile picture</p>
+                </div>
+                <button class="secondary-button">Edit</button>
+              </div>
+              
+              <div class="settings-option">
+                <div class="option-content">
+                  <h4>Change Password</h4>
+                  <p>Update your password for security</p>
+                </div>
+                <button class="secondary-button">Change</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-section" id="preferences">
+            <h3>App Preferences</h3>
+            <div class="settings-options">
+              <div class="settings-option">
+                <div class="option-content">
+                  <h4>Notifications</h4>
+                  <p>Manage your notification settings</p>
+                </div>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="notifications" checked>
+                  <label for="notifications"></label>
+                </div>
+              </div>
+              
+              <div class="settings-option">
+                <div class="option-content">
+                  <h4>Dark Mode</h4>
+                  <p>Switch between light and dark themes</p>
+                </div>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="dark-mode">
+                  <label for="dark-mode"></label>
+                </div>
+              </div>
+              
+              <div class="settings-option">
+                <div class="option-content">
+                  <h4>Reminder Frequency</h4>
+                  <p>Set how often you receive check-in reminders</p>
+                </div>
+                <select class="settings-select">
+                  <option>Daily</option>
+                  <option>Weekly</option>
+                  <option>Monthly</option>
+                  <option>Never</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-section">
+            <h3>Legal & Privacy</h3>
+            <div class="settings-options">
+              <div class="settings-option">
+                <div class="option-content">
+                  <h4>Terms of Use</h4>
+                  <p>Read our terms and conditions</p>
+                </div>
+                <a href="terms.html" class="text-button">View <i class="fas fa-external-link-alt"></i></a>
+              </div>
+              
+              <div class="settings-option">
+                <div class="option-content">
+                  <h4>Privacy Policy</h4>
+                  <p>Learn how we protect your data</p>
+                </div>
+                <a href="privacy.html" class="text-button">View <i class="fas fa-external-link-alt"></i></a>
+              </div>
+              
+              <div class="settings-option">
+                <div class="option-content">
+                  <h4>Data Management</h4>
+                  <p>Manage or delete your account data</p>
+                </div>
+                <button class="danger-button">Request Data Deletion</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer with Legal Links -->
+      <footer class="app-footer">
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="terms.html">Terms of Use</a>
+            <span class="separator">|</span>
+            <a href="privacy.html">Privacy Policy</a>
+            <span class="separator">|</span>
+            <a href="mailto:support@mentalmosaic.com">Contact Us</a>
+          </div>
+          <div class="footer-copyright">
+            © 2025 MentalMosaic. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>
